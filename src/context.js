@@ -6,9 +6,13 @@ const AppContext = React.createContext();
 const API_URL = 'https://fakestoreapi.com/products';
 
 const AppProvider = ({children})=>{
-    const [pradoct,setPradoct]=useState([])
-  const [num,setNum]=useState(0)
-  const [loading,setLoading]=useState(true)
+  const [pradoct,setPradoct]=useState([]);
+  const [num,setNum]=useState(0);
+  const [loading,setLoading]=useState(true);
+  const [scroll,setScroll]=useState(false);
+  // changung the b=nave shado on scroll
+
+  
   const fetchApi = async()=>{
     setLoading(true)
     const response= await fetch(API_URL)
@@ -29,7 +33,7 @@ const AppProvider = ({children})=>{
     fetchApi()
   },[])
     return(
-        <AppContext.Provider value={{pradoct,loading,num}}>
+        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll}}>
                 {children}
         </AppContext.Provider>
     )

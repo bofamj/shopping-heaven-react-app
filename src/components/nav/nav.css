@@ -6,6 +6,10 @@
     align-items:center;
     justify-content:space-around;
 }
+.header-scrol{
+    position:sticky;
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
 .nav-bar{ 
     width:20rem;
     display:flex;
@@ -28,5 +32,10 @@
     cursor:pointer;
 }
 .logo span{
-    color:red;
+    color:rgba(255, 0, 0, 0.87);
+}
+.link{
+    list-style:none;
+    text-decoration:none;
+    color:rgb(107, 107, 107);
 }

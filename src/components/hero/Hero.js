@@ -1,8 +1,8 @@
 import React from 'react';
 import './hero.css';
 import {useGlobalContext} from '../../context';
-import image from './serves/images/slider_1.jpg';
-
+import imgg from './serves/images/slider_1.jpg'
+console.log(imgg);
 const Hero = () => {
     const {pradoct,loading,num} = useGlobalContext();
     if(loading){
@@ -12,7 +12,7 @@ const Hero = () => {
     return (
         <main className='hero'>
             <section className='img-hero'>
-                <img src={image} alt={pradoct.title} />
+                <img src={imgg} alt='' />
             </section>
             <section className='hero-text'>
                 <h1>NEW SEASON ARRIVALS</h1>
