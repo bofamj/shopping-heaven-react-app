@@ -1,9 +1,20 @@
-import React from 'react'
+import React,{useEffect} from 'react';
 import { FaShippingFast,FaMoneyBillAlt} from 'react-icons/fa';
 import { GiReturnArrow } from 'react-icons/gi';
+import { gsap,Bounce, Back, Power2,Power3, Elastic, CSSPlugin } from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import './serveses.css';
 
 const Serveses = () => {
+    gsap.registerPlugin(ScrollTrigger);
+    useEffect(() =>{
+        
+        gsap.from('.main-serv',{scrollTrigger:{
+            trigger:'.main-serv',
+            toggleActions:'restart none restart none'},
+            opacity: 1, x: -200, duration: 1,ease:Back}
+          );
+    },[])
     return (
         <main className='main-serv'>
             <section  className='serv-sec'>

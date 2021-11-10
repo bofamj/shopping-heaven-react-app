@@ -29,7 +29,7 @@ const Nav = () => {
                 <ul>
                     <li><Link className='link path' to="/">Home</Link></li>
                     <li><Link className='link path' to="/about">Abou</Link></li>
-                    <li><HiShoppingCart /></li>
+                    <li><HiShoppingCart size='22'/><p className='cart-nom'>3</p></li>
                 </ul>
             </nav>
             

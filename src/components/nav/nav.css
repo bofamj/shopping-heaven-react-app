@@ -28,10 +28,12 @@ li:hover{
     display:flex;
     align-items:center;
     justify-content:space-around;
+    position: relative;
 }
 .nav-bar ul li{
     list-style:none;
     cursor:pointer;
+    
 }
 .logo{
     font-size:1.5rem;
@@ -45,7 +47,21 @@ li:hover{
     list-style:none;
     text-decoration:none;
     color:rgb(107, 107, 107);
+    z-index: 10;
 }
 .path:hover{
     color:rgb(41, 87, 238);
+}
+.cart-nom{
+    width:1.2em;
+    height:1.2em;
+    position:absolute;
+    top:-8px;
+    right:2rem;
+    background-color:rgba(255, 0, 0, 0.87);
+    border-radius:50%;
+    font-size: 13px;
+    font-weight: 700;
+    color:rgb(255, 255, 255);
+    z-index: 2;
 }

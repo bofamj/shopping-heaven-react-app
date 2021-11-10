@@ -2,8 +2,9 @@ import React,{useState,useEffect,useContext} from 'react';
 
 
 const AppContext = React.createContext();
-
+const men = `men's clothing`
 const API_URL = 'https://fakestoreapi.com/products';
+const API_SURT = `https://fakestoreapi.com/products/category/{men}`;
 
 const AppProvider = ({children})=>{
   const [pradoct,setPradoct]=useState([]);

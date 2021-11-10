@@ -34,5 +34,7 @@
 font-size:3rem
 }
 .hero-text h3{
-font-size:1.5rem
+font-size:1.5rem;
+cursor:pointer;
+color:rgba(255, 0, 0, 0.87);
 }

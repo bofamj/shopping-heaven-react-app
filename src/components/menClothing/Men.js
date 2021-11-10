@@ -9,8 +9,8 @@ const Men = () => {
                 <img src={imgg} alt='' />
             </section>
             <section className='hero-text-men'>
-                <h1>NEW SEASON ARRIVALS</h1>
-                <h3>CHECK OUT ALL TRENDS</h3>
+                <h1>BEST MEN CLOTHING</h1>
+                <h3>CHECK OUT HERE</h3>
             </section>
             
         </main>

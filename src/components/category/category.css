@@ -6,6 +6,7 @@
     align-items:center;
     justify-content:space-around;
     position:relative;
+    overflow: none;
 }
 .cate-section{
     position:relative;
@@ -19,4 +20,10 @@
     background-color:#fff;
     padding:5px;
     text-transform:uppercase;
+    cursor:pointer;
+    border-radius:5px;
+}
+.cate-title:hover{
+    color:rgb(58, 58, 58);
+    background-color:rgb(235, 235, 235);
 }
