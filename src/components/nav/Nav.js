@@ -12,13 +12,14 @@ const Nav = () => {
 
     const {setScroll,scroll}=useGlobalContext();
     const handelScroll = ()=>{
-        if(window.scrollY >= 3 ){
+        //console.log(window.scrollY);
+        if(window.scrollY >= 50 ){
           setScroll(true)
         }else{
           setScroll(false)
-        }
+        } 
       }
-      handelScroll()
+      window.addEventListener('scroll', handelScroll)
     return (
         <header className={scroll ? 'header header-scrol' :'header'}>
             <section className='logo'>
@@ -26,8 +27,8 @@ const Nav = () => {
             </section>
             <nav className='nav-bar'>
                 <ul>
-                    <li><Link className='link' to="/">Home</Link></li>
-                    <li><Link className='link' to="/about">Abou</Link></li>
+                    <li><Link className='link path' to="/">Home</Link></li>
+                    <li><Link className='link path' to="/about">Abou</Link></li>
                     <li><HiShoppingCart /></li>
                 </ul>
             </nav>

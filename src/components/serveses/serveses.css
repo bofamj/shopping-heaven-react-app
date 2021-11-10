@@ -1,0 +1,27 @@
+.main-serv{
+    width: 95%;
+    height:4rem;
+    margin-top:3rem;
+    margin-left:2.5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    background-color:rgb(236, 236, 236);
+}
+.serv-sec{
+    width: 100%;
+    height:4rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    border-right:1px solid rgb(168, 168, 168);
+}
+.serv-sec h2{
+    font-size:19px
+}
+.serv-sec p{
+    font-size:14px
+}
+.cach-sec{
+    border:none;
+}
