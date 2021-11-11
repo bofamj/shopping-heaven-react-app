@@ -1,6 +1,10 @@
 import React from 'react';
-import imgg from '../hero/serves/images/nordwood-themes-eGHlWS-zQSM-unsplash.jpg'
-import './men.css'
+import imgg from '../hero/serves/images/nordwood-themes-eGHlWS-zQSM-unsplash.jpg';
+import './men.css';
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
 
 const Men = () => {
     return (
@@ -10,7 +14,7 @@ const Men = () => {
             </section>
             <section className='hero-text-men'>
                 <h1>BEST MEN CLOTHING</h1>
-                <h3>CHECK OUT HERE</h3>
+                <Link className='link' to="/men"><h3>CHECK OUT HERE</h3></Link>
             </section>
             
         </main>

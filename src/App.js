@@ -10,6 +10,7 @@ import {useGlobalContext} from './context';
 import Nav from './components/nav/Nav';
 import Home from './components/home/Home';
 import Women from './components/womenClothing/Women';
+import BestMen from './components/bestMenClothing/BestMen';
 
 function App() {
   
@@ -30,6 +31,11 @@ function App() {
           <Route exact path="/women" >
             <main>
               <Women/>
+            </main>
+          </Route>
+          <Route exact path="/men" >
+            <main>
+              <BestMen/>
             </main>
           </Route>
         </Switch>
