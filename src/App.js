@@ -8,7 +8,8 @@ import {
 import './App.css';
 import {useGlobalContext} from './context';
 import Nav from './components/nav/Nav';
-import Home from './components/home/Home'
+import Home from './components/home/Home';
+import Women from './components/womenClothing/Women';
 
 function App() {
   
@@ -24,6 +25,11 @@ function App() {
           <Route exact path="/" >
             <main>
               <Home/>
+            </main>
+          </Route>
+          <Route exact path="/women" >
+            <main>
+              <Women/>
             </main>
           </Route>
         </Switch>

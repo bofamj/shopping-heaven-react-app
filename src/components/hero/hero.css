@@ -38,3 +38,9 @@ font-size:1.5rem;
 cursor:pointer;
 color:rgba(255, 0, 0, 0.87);
 }
+.link{
+    list-style: none;
+}
+.hero-text h3:hover{
+    color:rgba(255, 0, 0, 0.699);
+}
