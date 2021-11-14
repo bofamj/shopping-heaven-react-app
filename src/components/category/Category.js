@@ -2,6 +2,10 @@ import React,{useEffect} from 'react';
 import im1 from '../hero/serves/images/banner_1.jpg';
 import im2 from '../hero/serves/images/banner_2.jpg';
 import im3 from '../hero/serves/images/banner_3.jpg';
+import {
+    BrowserRouter as Router,
+    Link
+  } from "react-router-dom";
 import './category.css';
 import { gsap,Bounce, Back, Power2,Power3, Elastic, CSSPlugin } from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -29,7 +33,7 @@ export default function Category() {
         <main className="cat-min">
             <section className='cate-section women'>
                 <img src={im1} alt="" />
-                <h3 className='cate-title'>women's</h3>
+                <Link className='link' to="/allWomen"><h3 className='cate-title'>women's</h3></Link>
             </section>
             <section className='cate-section jewelery'>
                 <img src={im2} alt="" />

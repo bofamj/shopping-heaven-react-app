@@ -11,6 +11,9 @@ import Nav from './components/nav/Nav';
 import Home from './components/home/Home';
 import Women from './components/womenClothing/Women';
 import BestMen from './components/bestMenClothing/BestMen';
+import Foter from './components/home/foter/Foter';
+import AllWomen from './components/allwomen/AllWomen';
+import Carts from './components/cart/Carts'
 
 function App() {
   
@@ -38,9 +41,21 @@ function App() {
               <BestMen/>
             </main>
           </Route>
+          <Route exact path="/allWomen" >
+            <main>
+              <AllWomen/>
+            </main>
+          </Route>
+          <Route exact path="/cart" >
+            <main>
+              <Carts/>
+            </main>
+          </Route>
         </Switch>
       </section>
-      
+        <section className='footer-home'>
+                <Foter/>
+        </section>
     </Router>
   );
 }

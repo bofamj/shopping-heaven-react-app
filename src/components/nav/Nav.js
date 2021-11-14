@@ -10,7 +10,7 @@ import {
 
 const Nav = () => {
 
-    const {setScroll,scroll}=useGlobalContext();
+    const {setScroll,scroll,cart}=useGlobalContext();
     const handelScroll = ()=>{
         //console.log(window.scrollY);
         if(window.scrollY >= 50 ){
@@ -29,7 +29,7 @@ const Nav = () => {
                 <ul>
                     <li><Link className='link path' to="/">Home</Link></li>
                     <li><Link className='link path' to="/about">Abou</Link></li>
-                    <li><HiShoppingCart size='22'/><p className='cart-nom'>3</p></li>
+                    <Link className='link' to="/cart"><li><HiShoppingCart size='22'/><p className='cart-nom'>{cart.length}</p></li></Link>
                 </ul>
             </nav>
             

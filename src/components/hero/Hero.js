@@ -6,7 +6,7 @@ import {
     BrowserRouter as Router,
     Link
   } from "react-router-dom";
-console.log(imgg);
+//console.log(imgg);
 const Hero = () => {
     const {pradoct,loading,num} = useGlobalContext();
     if(loading){

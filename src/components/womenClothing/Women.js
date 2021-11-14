@@ -15,7 +15,7 @@ const Women = () => {
         
         
             {womenClothing.map((cloth)=>{
-                console.log(cloth);
+                //console.log(cloth);
                 return <WomenCloth key={cloth.id} {...cloth}/>
             })}
         </main>

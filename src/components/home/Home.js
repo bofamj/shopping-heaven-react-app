@@ -20,10 +20,6 @@ const Home = () => {
             <section className='hero-home'>
                 <Men/>
             </section>
-            <section className='footer-home'>
-                <Foter/>
-            </section>
-            
         </main>
     )
 }

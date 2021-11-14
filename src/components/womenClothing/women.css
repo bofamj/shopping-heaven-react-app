@@ -57,3 +57,11 @@
     color:rgba(255, 0, 0, 0.87);
     font-weight:600;
 }
+button{
+    padding:5px;
+    background-color:rgb(105, 105, 247);
+    border:none;
+    border-radius:2px;
+    color:rgb(243, 243, 243);
+    cursor:pointer;
+}

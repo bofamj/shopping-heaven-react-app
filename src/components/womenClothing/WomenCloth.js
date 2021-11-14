@@ -1,9 +1,11 @@
 import React from 'react';
 import './women.css';
+import{useGlobalContext} from '../../context';
 
-const WomenCloth = ({description,image,price,title,rating}) => {
+const WomenCloth = ({description,image,price,title,rating,id}) => {
+    const {addToCart}= useGlobalContext();
     return (
-        <main className='mai-cart'>
+        <main className='mai-cart' key={id}>
             <section className='img-sec'>
                 <img src={image} alt={title} />
             </section>
@@ -14,6 +16,9 @@ const WomenCloth = ({description,image,price,title,rating}) => {
                 <div className='rate'>
                     <h3>${price}</h3>
                     <p>rating:    <span>{rating.rate}</span></p>
+                </div>
+                <div className='rate'>
+                    <button onClick={addToCart} className='btn' value={id}>ADD TO CART</button>
                 </div>
             </section>
             
