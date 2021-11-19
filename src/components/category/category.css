@@ -16,9 +16,9 @@
     width:8rem;
     top:55%;
     left:35%;
-    color:rgb(26, 26, 26);
-    background-color:#fff;
-    padding:5px;
+    color:rgb(107, 107, 107);
+    background-color:rgb(255, 255, 255);
+    padding:0.5em;
     text-transform:uppercase;
     cursor:pointer;
     border-radius:5px;

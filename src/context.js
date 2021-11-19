@@ -25,11 +25,23 @@ const AppProvider = ({children})=>{
   const [allWomen,setAllWomen]=useState([]);
   //cart component
   const [cart,setCart]=useState([])
-  // add to cart functions
+  //amount state
+  const [amount,setAmount]=useState(1)
+  //add items 
+  const addItemAmount = ()=>{
+
+  }
+  //sutrac item
+  //clear cart 
+  const clearCart = ()=>{
+    setCart([])
+  }
+  // add mome clothing to cart functions
   const addToCart = e =>{
-    //console.log(e.target.value);
     let cart2 =[...cart]
+    
     const cloth =  womenClothing.filter((item) =>{
+      
       if(item.id == e.target.value){
         return item
       }
@@ -37,61 +49,56 @@ const AppProvider = ({children})=>{
     cart2.push(cloth);
     setCart(cart2);
   }
-    //console.log(cart);
-  /*function addtocart(item) {
-    let cart2 = [...cart]
-    cart2.push({ ...item })
-    products.map((i) => {
-      if (i.id == item.id) {
-        i.cart = true
+  //add the men clothing to the cart
+  const addToMenCart = e =>{
+    //console.log(e.target.value);
+    let cart3 =[...cart]
+    const cloth =  menClothing.filter((item) =>{
+      if(item.id == e.target.value){
+        return item
       }
     })
-    setCart(cart2)
-
-  }*/ 
-  //console.log(cart);
-  //all porducts api
-  /* const optionss = {
-    method: 'GET',
-    url: 'https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list',
-    params: {
-      country: 'asia2',
-      lang: 'en',
-      currentpage: '0',
-      pagesize: '30',
-      categories: 'men_all',
-      concepts: 'H&M MAN'
-    },
-    headers: {
-      'x-rapidapi-host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com',
-      'x-rapidapi-key': '3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6'
-    }
-  };
-  
-  axios.request(optionss).then(function (response) {
-    //console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
-//fetching prodocts
-const options = {
-  method: 'GET',
-  url: 'https://kohls.p.rapidapi.com/products/list',
-  params: {limit: '24', offset: '1', dimensionValueID: 'AgeAppropriate:Teens'},
-  headers: {
-    'x-rapidapi-host': 'kohls.p.rapidapi.com',
-    'x-rapidapi-key': '3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6'
+    cart3.push(cloth);
+    setCart(cart3);
   }
-}; */
-
-/* axios.request(options).then(function (response) {
-	//console.log(response.data.payload.products);
-  setAllWomen(response.data.payload.products)
-}).catch(function (error) {
-	console.error(error);
+  //delet one item for cart function
+  const handelDelet = (id)=>{
+    //console.log(id);
+    let nweCartItem = cart.filter((i)=>i[0].id !== id)
+    //console.log(nweCartItem);
+    setCart(nweCartItem)
+  }
+  //all porducts api
+  /* fetch("https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=asia2&lang=en&currentpage=0&pagesize=30&categories=men_all&concepts=H%26M%20MAN/?rapidapi-key=3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+		"x-rapidapi-key": "3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.error(err);
 }); */
+//fetching prodocts
+ /* const options = {
+      method: 'GET',
+      url: 'https://kohls.p.rapidapi.com/products/list',
+      params: {limit: '24', offset: '1', dimensionValueID: 'AgeAppropriate:Teens'},
+      headers: {
+        'x-rapidapi-host': 'kohls.p.rapidapi.com',
+        'x-rapidapi-key': '3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6'
+      }
+    }; 
+    axios.request(options).then(function (response) {
+      //console.log(response.data.payload.products);
+      setAllWomen(response.data.payload.products)
+    }).catch(function (error) {
+      console.error(error);
+    });  */
   const fetchApi = async()=>{
-    setLoading(true)
     try {
       const menClothing = axios.get(API_SURT);
       const womenClothing = axios.get(API_WOM);
@@ -123,7 +130,7 @@ const options = {
     fetchApi()
   },[])
     return(
-        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,addToCart,cart}}>
+        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,addToCart,cart,addToMenCart,handelDelet,clearCart}}>
                 {children}
         </AppContext.Provider>
     )

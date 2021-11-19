@@ -1,19 +1,35 @@
 import React from 'react'
+import{useGlobalContext} from '../../context';
+import './cart.css'
+//import { FaPlusCircle } from 'react-icons/hi';
+import { FaMinusCircle,FaPlusCircle } from 'react-icons/fa';
+import { RiDeleteBin5Line } from 'react-icons/ri';
+
+
 
 const Cart = (cloth) => {
-    console.log(cloth);
+   const {id,image,title,price}=cloth[0]
+    //console.log(cloth);
+    const {handelDelet}= useGlobalContext();
     return (
-        <main className='mai-cart' key={cloth[0].id}>
-            <section className='img-sec'>
-                <img src={cloth[0].image} alt='cart' />
+        <main className='cart' key={id}>
+            <section className='cart-img'>
+                <img src={image} alt='cart' />
             </section>
-            <section className='describ-sec'>
-                <div className='title'>
-                    <p>{cloth[0].title}</p>
+            <section className='cart-describ'>
+                <div className='cart-title'>
+                    <p>{title}</p>
                 </div>
-                <div className='rate'>
-                    <h3>${cloth[0].price}</h3>
-                    <p>rating:    <span>{cloth[0].rating.rate}</span></p>
+                <div className='cart-rate'>
+                    <h3>${price}</h3>
+                </div>
+                <div className='cart-amount'>
+                    <div className='btn-cart-amount'><FaPlusCircle/></div>
+                    <span>1</span>
+                    <div className='btn-cart-amount'><FaMinusCircle/></div>
+                </div>
+                <div className='cart-amount'>
+                    <div className='btn-cart-delet'onClick={()=>handelDelet(id)} value={id}><RiDeleteBin5Line  /></div>
                 </div>
             </section>  
             

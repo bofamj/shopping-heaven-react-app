@@ -7,6 +7,7 @@ import {
   } from "react-router-dom";
 
 const Men = () => {
+    
     return (
         <main className='men'>
             <section className='img-men'>
