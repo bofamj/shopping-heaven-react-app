@@ -13,7 +13,7 @@ const AllProducts = () => {
         
         
             {allProducts.map((cloth)=>{
-                console.log(cloth);
+               
                 return <AllProduct key={cloth.id} {...cloth}/>
             })}
         </main>

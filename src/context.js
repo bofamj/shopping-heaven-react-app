@@ -10,28 +10,28 @@ const API_SURT = `https://fakestoreapi.com/products/category/${men}`;
 const API_WOM = `https://fakestoreapi.com/products/category/${women}`;
 
 const AppProvider = ({children})=>{
-  //all products
+  //*all products
   const [pradoct,setPradoct]=useState([]);
   const [num,setNum]=useState(0);
-  //loding
+  //*loding
   const [loading,setLoading]=useState(true);
-  //cheking the scroll for the navbar changing
+  //*cheking the scroll for the navbar changing
   const [scroll,setScroll]=useState(false);
-  // women menClothing
+  //* women menClothing
   const [womenClothing,setWomenClothing]=useState([]);
-  //men clothing
+  //*men clothing
   const [menClothing,setMENclothing]=useState([]);
-  //all women clothing
+  //*all women clothing
   const [allWomen,setAllWomen]=useState([]);
-  //all products 
+  //*all products 
   const [allProducts,setAllProducts]=useState([]);
-  //cart component
+  //*cart component
   const [cart,setCart]=useState([])
-  //amount state
+  //*amount state
   const [amount,setAmount]=useState(1)
-  //disabell adding to cart
+  //*disabell adding to cart
   const [disabell,setDisabell]=useState(false)
-  //add items 
+  //*add items 
   const addItemAmount = ()=>{
 
   }
@@ -40,10 +40,9 @@ const AppProvider = ({children})=>{
   const clearCart = ()=>{
     setCart([])
   }
-  // add mome clothing to cart functions
-  /* const addToCart = e =>{
+  //* add women clothing to cart functions
+  const addToCart = e =>{
     let cart2 =[...cart]
-    
     const cloth =  womenClothing.filter((item) =>{
       
       if(item.id == e.target.value){
@@ -52,40 +51,48 @@ const AppProvider = ({children})=>{
       }
       //setDisabell(true)
     })
-    cart2.push(cloth);
+    const {price,image,title,id}=cloth[0]
+    
+    cart2.push({price,image,title,id,count:amount,disabell:disabell});
     
     setCart(cart2);
     
-  } */
-  //add the men clothing to the cart
+    
+  } 
+  
+  //*add the men clothing to the cart
   const addToMenCart = e =>{
-    let cart3 =[...cart]
+    
+    let cart3=[...cart]
     const cloth =  menClothing.filter((item) =>{
-      if(item.id === e.id){
-        //console.log(e.id);
+      if(item.id == e.target.value){
+        
         return item
       }
     })
-    cart3.push(cloth);
+    const {price,image,title,id}=cloth[0]
+    
+    cart3.push({price,image,title,id,count:amount,disabell:true});//[price,image,title,id]
     setCart(cart3);
   }
-  console.log(cart);
-  //add all products to cart 
-  /* const addToAllCart = e =>{
+  
+  //*add all products to cart 
+  const addToAllCart = e =>{
     let cart4 =[...cart]
     const cloth =  allProducts.filter((item) =>{
       if(item.id == e.target.value){
         return item
       }
     })
-    cart4.push(cloth);
+    const {price,image,title,id}=cloth[0]
+    cart4.push({price,image,title,id,count:amount,disabell:true});
     setCart(cart4);
-  } */
-  //delet one item for cart function
+  } 
+  //!delet one item for cart function
   const handelDelet = (id)=>{
-    //console.log(id);
-    let nweCartItem = cart.filter((i)=>i[0].id !== id)
-    //console.log(nweCartItem);
+    
+    let nweCartItem = cart.filter((i)=>i.id !== id)
+    
     setCart(nweCartItem)
   }
   
@@ -104,7 +111,6 @@ const AppProvider = ({children})=>{
             setWomenClothing(response[1].data)
           }
           if(response[2].status === 200){
-            //console.log(response[2].data);
             setAllProducts(response[2].data)
           }
         })
@@ -120,7 +126,7 @@ const AppProvider = ({children})=>{
     fetchApi()
   },[])
     return(
-        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts}}>
+        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts,addToCart,addToAllCart,disabell}}>
                 {children}
         </AppContext.Provider>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import{useGlobalContext} from '../../context';
 
 const MenCloth = (cloth) => {
-    const {description,image,price,title,rating,id}=cloth[0]
+    const {description,image,price,title,rating,id}=cloth
     const {addToMenCart}= useGlobalContext();
     return (
         <main className='mai-cart'>
@@ -18,7 +18,7 @@ const MenCloth = (cloth) => {
                     <p>rating:    <span>{rating.rate}</span></p>
                 </div>
                 <div className='rate'>
-                    <button onClick={()=>addToMenCart(id)} className='btn btn-all' >ADD TO CART</button>
+                    <button value={id}onClick={addToMenCart} className='btn btn-all' >ADD TO CART</button>
                 </div>
             </section>
             
