@@ -54,3 +54,13 @@
     cursor:pointer;
    color: blue;
 }
+.clear{
+    color:rgba(236, 17, 17, 0.836);
+    border:1px solid rgba(236, 17, 17, 0.836);
+    padding:0.5em 4em;
+    border-radius:5px;
+    background: linear-gradient(to right , #008CBA 50%, rgb(255, 255, 255) 50%);
+    background-size: 200% 100%;
+    background-position: bottom right;
+    transition: all .7s ease-out;
+}

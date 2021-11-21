@@ -1,11 +1,9 @@
 import React from 'react'
 import{useGlobalContext} from '../../context';
-
-const MenCloth = (cloth) => {
-    const {description,image,price,title,rating,id}=cloth[0]
-    const {addToMenCart}= useGlobalContext();
+const AllProduct = ({description,image,price,title,rating,id}) => {
+    const {addToAllCart,disabell}= useGlobalContext();
     return (
-        <main className='mai-cart'>
+        <main className='mai-cart' key={id}>
             <section className='img-sec'>
                 <img src={image} alt={title} />
             </section>
@@ -18,7 +16,7 @@ const MenCloth = (cloth) => {
                     <p>rating:    <span>{rating.rate}</span></p>
                 </div>
                 <div className='rate'>
-                    <button onClick={()=>addToMenCart(id)} className='btn btn-all' >ADD TO CART</button>
+                    {/* <button onClick={addToAllCart} className='btn btn-all' value={id} disabled={disabell?true:false}>ADD TO CART</button> */}
                 </div>
             </section>
             
@@ -26,4 +24,4 @@ const MenCloth = (cloth) => {
     )
 }
 
-export default MenCloth
+export default AllProduct

@@ -14,6 +14,7 @@ import BestMen from './components/bestMenClothing/BestMen';
 import Foter from './components/home/foter/Foter';
 import AllWomen from './components/allwomen/AllWomen';
 import Carts from './components/cart/Carts'
+import AllProducts from './components/allproducts/AllProducts'
 
 function App() {
   
@@ -49,6 +50,11 @@ function App() {
           <Route exact path="/cart" >
             <main>
               <Carts/>
+            </main>
+          </Route>
+          <Route exact path="/All Products" >
+            <main>
+              <AllProducts/>
             </main>
           </Route>
         </Switch>

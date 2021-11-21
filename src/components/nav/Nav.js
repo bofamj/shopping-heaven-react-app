@@ -28,7 +28,7 @@ const Nav = () => {
             <nav className='nav-bar'>
                 <ul>
                     <li><Link className='link path' to="/">Home</Link></li>
-                    <li><Link className='link path' to="/about">Abou</Link></li>
+                    <li><Link className='link path' to="/All Products">All Products</Link></li>
                     <Link className='link' to="/cart"><li><HiShoppingCart size='22'/><p className='cart-nom'>{cart.length}</p></li></Link>
                 </ul>
             </nav>

@@ -23,10 +23,14 @@ const AppProvider = ({children})=>{
   const [menClothing,setMENclothing]=useState([]);
   //all women clothing
   const [allWomen,setAllWomen]=useState([]);
+  //all products 
+  const [allProducts,setAllProducts]=useState([]);
   //cart component
   const [cart,setCart]=useState([])
   //amount state
   const [amount,setAmount]=useState(1)
+  //disabell adding to cart
+  const [disabell,setDisabell]=useState(false)
   //add items 
   const addItemAmount = ()=>{
 
@@ -37,30 +41,46 @@ const AppProvider = ({children})=>{
     setCart([])
   }
   // add mome clothing to cart functions
-  const addToCart = e =>{
+  /* const addToCart = e =>{
     let cart2 =[...cart]
     
     const cloth =  womenClothing.filter((item) =>{
       
       if(item.id == e.target.value){
+        
         return item
       }
+      //setDisabell(true)
     })
     cart2.push(cloth);
+    
     setCart(cart2);
-  }
+    
+  } */
   //add the men clothing to the cart
   const addToMenCart = e =>{
-    //console.log(e.target.value);
     let cart3 =[...cart]
     const cloth =  menClothing.filter((item) =>{
-      if(item.id == e.target.value){
+      if(item.id === e.id){
+        //console.log(e.id);
         return item
       }
     })
     cart3.push(cloth);
     setCart(cart3);
   }
+  console.log(cart);
+  //add all products to cart 
+  /* const addToAllCart = e =>{
+    let cart4 =[...cart]
+    const cloth =  allProducts.filter((item) =>{
+      if(item.id == e.target.value){
+        return item
+      }
+    })
+    cart4.push(cloth);
+    setCart(cart4);
+  } */
   //delet one item for cart function
   const handelDelet = (id)=>{
     //console.log(id);
@@ -68,41 +88,13 @@ const AppProvider = ({children})=>{
     //console.log(nweCartItem);
     setCart(nweCartItem)
   }
-  //all porducts api
-  /* fetch("https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list?country=asia2&lang=en&currentpage=0&pagesize=30&categories=men_all&concepts=H%26M%20MAN/?rapidapi-key=3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
-		"x-rapidapi-key": "3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.error(err);
-}); */
-//fetching prodocts
- /* const options = {
-      method: 'GET',
-      url: 'https://kohls.p.rapidapi.com/products/list',
-      params: {limit: '24', offset: '1', dimensionValueID: 'AgeAppropriate:Teens'},
-      headers: {
-        'x-rapidapi-host': 'kohls.p.rapidapi.com',
-        'x-rapidapi-key': '3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6'
-      }
-    }; 
-    axios.request(options).then(function (response) {
-      //console.log(response.data.payload.products);
-      setAllWomen(response.data.payload.products)
-    }).catch(function (error) {
-      console.error(error);
-    });  */
+  
   const fetchApi = async()=>{
     try {
       const menClothing = axios.get(API_SURT);
       const womenClothing = axios.get(API_WOM);
-      axios.all([menClothing,womenClothing])
+      const allProducts = axios.get(API_URL)
+      axios.all([menClothing,womenClothing,allProducts])
       .then(
         axios.spread((...response)=>{
           if(response[0].status === 200){
@@ -111,6 +103,10 @@ const AppProvider = ({children})=>{
           if(response[1].status === 200){
             setWomenClothing(response[1].data)
           }
+          if(response[2].status === 200){
+            //console.log(response[2].data);
+            setAllProducts(response[2].data)
+          }
         })
       )
     } catch (error) {
@@ -118,19 +114,13 @@ const AppProvider = ({children})=>{
     }
     setLoading(false)
   }
-    //console.log(pradoct[num].image)
-    /*  if(num >= 19){
-      setNum(0)
-    }else{
-      setTimeout(() => {setNum(num+1)}, 5000);
-    } */
-    //console.log(num) 
+    
     
   useEffect(()=>{
     fetchApi()
   },[])
     return(
-        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,addToCart,cart,addToMenCart,handelDelet,clearCart}}>
+        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts}}>
                 {children}
         </AppContext.Provider>
     )

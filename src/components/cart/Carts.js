@@ -5,6 +5,10 @@ import './cart.css'
 
 const Carts = () => {
     const {cart,loading,clearCart}= useGlobalContext();
+
+    const total = cart.reduce((total,cartItem)=>{
+        return total
+    },{})
     if(loading){
         return <h1>loading....</h1>
     }
@@ -18,7 +22,10 @@ const Carts = () => {
     }
     return (
         <>
-        
+
+            <section>
+                <h5>total amount : </h5>
+            </section>
             <main className='women-min cart-min'>
             
             
@@ -28,7 +35,7 @@ const Carts = () => {
                 })}
             </main>
             <section>
-                <button onClick={clearCart}>Clear Cart</button>
+                <button onClick={clearCart} className='clear btn'>Clear Cart</button>
             </section>
         </>
     )

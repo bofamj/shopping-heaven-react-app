@@ -3,7 +3,7 @@ import './women.css';
 import{useGlobalContext} from '../../context';
 
 const WomenCloth = ({description,image,price,title,rating,id}) => {
-    const {addToCart}= useGlobalContext();
+    const {addToCart,disabell}= useGlobalContext();
     return (
         <main className='mai-cart' key={id}>
             <section className='img-sec'>
@@ -18,7 +18,7 @@ const WomenCloth = ({description,image,price,title,rating,id}) => {
                     <p>rating:    <span>{rating.rate}</span></p>
                 </div>
                 <div className='rate'>
-                    <button onClick={addToCart} className='btn' value={id}>ADD TO CART</button>
+                   {/*  <button onClick={addToCart} className='btn btn-all' value={id} disabled={disabell?true:false}>ADD TO CART</button> */}
                 </div>
             </section>
             
