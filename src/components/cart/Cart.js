@@ -9,8 +9,9 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 
 const Cart = (cloth) => {
    const {id,image,title,price,count}=cloth
-    //console.log(cloth);
-    const {handelDelet}= useGlobalContext();
+   
+  
+    const {handelDelet,subtractProducts,addProducts}= useGlobalContext();
     return (
         <main className='cart' key={id}>
             <section className='cart-img'>
@@ -24,9 +25,9 @@ const Cart = (cloth) => {
                     <h3>${price}</h3>
                 </div>
                 <div className='cart-amount'>
-                    <div className='btn-cart-amount'><FaPlusCircle/></div>
+                    <div className='btn-cart-amount' onClick={()=>addProducts(id)}><FaPlusCircle/></div>
                     <span>{count}</span>
-                    <div className='btn-cart-amount'><FaMinusCircle/></div>
+                    <div className='btn-cart-amount' onClick={()=>subtractProducts(id)}><FaMinusCircle/></div>
                 </div>
                 <div className='cart-amount'>
                     <div className='btn-cart-delet'onClick={()=>handelDelet(id)} value={id}><RiDeleteBin5Line  /></div>

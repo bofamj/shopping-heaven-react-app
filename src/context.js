@@ -109,8 +109,28 @@ const AppProvider = ({children})=>{
     cartTotal:0,
   })
   cartTotal =parseFloat(cartTotal.toFixed(2))
-  
-  
+   //!addproduct amount
+  const addProducts = (id)=>{
+    let icese = cart.map((item)=>{
+       if(item.id === id){
+        return {...item,count:item.count+1}
+      }
+      return item 
+      
+    })
+   
+    setCart(icese)
+  } 
+  //!subtract products from cart
+  const subtractProducts = (id)=>{
+    let suttarct = cart.map((item)=>{
+      if(item.id === id){
+        return {...item,count:item.count-1}
+      }
+      return item 
+    }).filter((item)=>item.count !== 0)
+    setCart(suttarct)
+  }
   
   const fetchApi = async()=>{
     try {
@@ -143,7 +163,7 @@ const AppProvider = ({children})=>{
     fetchApi()
   },[])
     return(
-        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts,addToCart,addToAllCart,disabell,totalItems,cartTotal}}>
+        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts,addToCart,addToAllCart,disabell,totalItems,cartTotal,subtractProducts,addProducts}}>
                 {children}
         </AppContext.Provider>
     )
