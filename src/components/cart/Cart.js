@@ -9,7 +9,7 @@ import { RiDeleteBin5Line } from 'react-icons/ri';
 
 const Cart = (cloth) => {
    const {id,image,title,price,count}=cloth
-    console.log(cloth);
+    //console.log(cloth);
     const {handelDelet}= useGlobalContext();
     return (
         <main className='cart' key={id}>

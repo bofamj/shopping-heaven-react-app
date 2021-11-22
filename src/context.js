@@ -95,6 +95,22 @@ const AppProvider = ({children})=>{
     
     setCart(nweCartItem)
   }
+  //*set the total amount function
+  let {totalItems,cartTotal} = cart.reduceRight((total,cartItem)=>{
+    const {count,price}=cartItem
+    //*cont item
+    total.totalItems += count
+    //*total amount
+    total.cartTotal += count * price
+    return total
+
+  },{
+    totalItems:0,
+    cartTotal:0,
+  })
+  cartTotal =parseFloat(cartTotal.toFixed(2))
+  
+  
   
   const fetchApi = async()=>{
     try {
@@ -106,6 +122,7 @@ const AppProvider = ({children})=>{
         axios.spread((...response)=>{
           if(response[0].status === 200){
             setMENclothing(response[0].data)
+            
           }
           if(response[1].status === 200){
             setWomenClothing(response[1].data)
@@ -126,7 +143,7 @@ const AppProvider = ({children})=>{
     fetchApi()
   },[])
     return(
-        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts,addToCart,addToAllCart,disabell}}>
+        <AppContext.Provider value={{pradoct,loading,num,setScroll,scroll,womenClothing,menClothing,allWomen,cart,addToMenCart,handelDelet,clearCart,disabell,allProducts,addToCart,addToAllCart,disabell,totalItems,cartTotal}}>
                 {children}
         </AppContext.Provider>
     )
